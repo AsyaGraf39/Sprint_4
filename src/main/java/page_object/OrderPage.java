@@ -1,6 +1,7 @@
 package page_object;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -54,9 +55,6 @@ public class OrderPage {
     //Локатор список элементов срока аренды
     private By listRentalPeriod = By.xpath(".//div[@class='Dropdown-option']");
 
-    //Локатор выбора срока аренды из выпадающего списка
-    private By selectRentalPeriod = By.xpath(".//div[@class='Dropdown-option']");
-
     //Локатор черного цвета самоката
     private By blackColor = By.xpath(".//label[@for='black']");
 
@@ -66,7 +64,7 @@ public class OrderPage {
     //Локатор комментария для курьера
     private By commentForCourier = By.xpath(".//input[@placeholder='Комментарий для курьера']");
 
-    //Локатор даты доставки
+    //Локатор кнопки создания заказа
     private By buttonOrder = By.xpath(".//button[contains(@class, 'Button_Middle__1CSJM') and text()='Заказать']");
 
     //Локатор подтверждения заказа
@@ -83,8 +81,14 @@ public class OrderPage {
         driver.findElement(closeCookie).click();
     }
 
-    public void clickHeaderOrderButton() {
-        driver.findElement(headerOrder).click();
+    public void clickOrderButton(boolean isBtnOrderHeader) {
+        if (isBtnOrderHeader) {
+            driver.findElement(headerOrder).click();
+        } else {
+            WebElement elRoadMapBtnOrder = driver.findElement(roadMapOrder);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", elRoadMapBtnOrder);
+            elRoadMapBtnOrder.click();
+        }
     }
 
     public void setName(String userName) {

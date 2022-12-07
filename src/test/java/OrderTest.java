@@ -25,10 +25,11 @@ public class OrderTest {
     private final String rentalPeriod;
     private final String color;
     private final String comment;
+    private final boolean isBtnOrderHeader;
 
     WebDriver driver;
 
-    public OrderTest(String name, String surname, String address, String metro, String phone, String date, String period, String color, String comment) {
+    public OrderTest(String name, String surname, String address, String metro, String phone, String date, String period, String color, String comment, boolean isBtnOrderHeader) {
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -38,13 +39,14 @@ public class OrderTest {
         this.rentalPeriod = period;
         this.color = color;
         this.comment = comment;
+        this.isBtnOrderHeader = isBtnOrderHeader;
     }
 
     @Parameterized.Parameters
     public static Object[][] getCredentials() {
         return new Object[][] {
-                { "Анастасия", "Граф", "Калининград Театральная 8", "Коньк", "89529999999", "12.15.2022", "сутки", COLOR, "Тест тест тест111!"},
-                { "Вася", "Пупкин", "Москва Театральная 8", "Зяблик", "89529999901", "01.01.2023", "пятеро суток", "", ""},
+                { "Анастасия", "Граф", "Калининград Театральная 8", "Коньк", "89529999999", "12.15.2022", "сутки", COLOR, "Тест тест тест111!", true},
+                { "Вася", "Пупкин", "Москва Театральная 8", "Зяблик", "89529999901", "01.01.2023", "пятеро суток", "", "", false},
         };
     }
 
@@ -64,7 +66,7 @@ public class OrderTest {
     public void OrderTest() {
         OrderPage objOrderPage = new OrderPage(driver);
         objOrderPage.clickCloseCookie();
-        objOrderPage.clickHeaderOrderButton();
+        objOrderPage.clickOrderButton(isBtnOrderHeader);
         objOrderPage.setName(name);
         objOrderPage.setSurname(surname);
         objOrderPage.setDeliveryAddress(address);
@@ -77,8 +79,8 @@ public class OrderTest {
         objOrderPage.setComment(comment);
         objOrderPage.doOrder();
         objOrderPage.clickOrderConfirm();
-        String expected = objOrderPage.orderSuccessful();
-        assertEquals("Ошибка, заказ не оформлен", ORDER_SUCCESSFUL, expected);
+        String actual = objOrderPage.orderSuccessful();
+        assertEquals("Ошибка, заказ не оформлен", ORDER_SUCCESSFUL, actual);
 
     }
 

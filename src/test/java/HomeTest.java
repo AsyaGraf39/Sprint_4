@@ -1,21 +1,39 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import page_object.HomePage;
 
 import java.time.Duration;
 
-import static constants.ConstantsHome.FIRST_ANSWER;
-import static constants.ConstantsHome.SECOND_ANSWER;
-import static org.junit.Assert.assertEquals;
+import static constants.ConstantsHome.*;
 
 
+@RunWith(Parameterized.class)
 public class HomeTest {
 
+    private final int question;
+    private final String answer;
+
     WebDriver driver;
+
+    public HomeTest(int question, String answer) {
+        this.question = question;
+        this.answer = answer;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] getCredentials() {
+        return new Object[][]{
+                {1, FIRST_ANSWER}, {2, SECOND_ANSWER}, {3, THIRD_ANSWER}, {4, FOURTH_ANSWER},
+                {5, FIFTH_ANSWER}, {6, SIXTH_ANSWER}, {7, SEVENTH_ANSWER}, {8, EIGHTH_ANSWER}
+        };
+        }
 
     @Before
     public void setup() {
@@ -31,11 +49,10 @@ public class HomeTest {
     @Test
     public void FAQTest(){
         HomePage objHomePage = new HomePage(driver);
-        String expectedFirst = objHomePage.getTextAnswerFirstFAQ();
-        String expectedSecond = objHomePage.getTextAnswerSecondFAQ();
         objHomePage.clickCloseCookie();
-        assertEquals("Текст первого ответа не соответствует ожидаемому", FIRST_ANSWER, expectedFirst);
-        assertEquals("Текст второго ответа не соответствует ожидаемому", SECOND_ANSWER, expectedSecond);
+        String actualAnswer = objHomePage.getTextAnswer(question);
+        System.out.println(actualAnswer);
+        Assert.assertEquals("Текст ответа не соответствует ожидаемому", answer, actualAnswer);
 
     }
 
