@@ -89,28 +89,28 @@ public class HomePage {
         elThirdFAQ.click();
     }
     public void clickFourthFAQButton() {
-        WebElement elFourthFAQ = driver.findElement(secondFAQ);
+        WebElement elFourthFAQ = driver.findElement(fourthFAQ);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", elFourthFAQ);
         elFourthFAQ.click();
     }
     public void clickFifthFAQButton() {
-        WebElement elFifthFAQ = driver.findElement(firstFAQ);
+        WebElement elFifthFAQ = driver.findElement(fifthFAQ);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", elFifthFAQ);
         elFifthFAQ.click();
 
     }
     public void clickSixthFAQButton() {
-        WebElement elSixthFAQ = driver.findElement(secondFAQ);
+        WebElement elSixthFAQ = driver.findElement(sixthFAQ);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", elSixthFAQ);
         elSixthFAQ.click();
     }
     public void clickSeventhFAQButton() {
-        WebElement elSeventhFAQ = driver.findElement(firstFAQ);
+        WebElement elSeventhFAQ = driver.findElement(seventhFAQ);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", elSeventhFAQ);
         elSeventhFAQ.click();
     }
     public void clickEighthFAQButton() {
-        WebElement elEighthFAQ = driver.findElement(secondFAQ);
+        WebElement elEighthFAQ = driver.findElement(eighthFAQ);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", elEighthFAQ);
         elEighthFAQ.click();
     }

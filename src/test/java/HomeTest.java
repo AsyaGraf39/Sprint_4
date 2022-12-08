@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import page_object.HomePage;
 
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static constants.ConstantsHome.*;
 
@@ -40,7 +40,7 @@ public class HomeTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 //        WebDriverManager.firefoxdriver().setup();
 //        driver = new FirefoxDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import page_object.OrderPage;
 
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static constants.ConstantsOrder.COLOR;
 import static constants.ConstantsOrder.ORDER_SUCCESSFUL;
@@ -57,7 +57,7 @@ public class OrderTest {
 //        WebDriverManager.firefoxdriver().setup();
 //        driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         driver.get("https://qa-scooter.praktikum-services.ru/");
     }
