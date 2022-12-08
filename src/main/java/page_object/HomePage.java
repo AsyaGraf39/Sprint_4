@@ -67,7 +67,6 @@ public class HomePage {
     public HomePage(WebDriver driver) {
 
         this.driver = driver;
-//        this.wait =  new WebDriverWait(driver, 3);
     }
 
     public void clickCloseCookie() {
@@ -118,84 +117,39 @@ public class HomePage {
     public String getTextAnswer(int numQuestion){
         if(numQuestion == 1){
             clickFirstFAQButton();
-//            wait.until(ExpectedConditions.visibilityOf(exampleElement));
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             return driver.findElement(answerFirstFAQ).getText();
         }
         if (numQuestion == 2){
             clickSecondFAQButton();
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             return driver.findElement(answerSecondFAQ).getText();
         }
         if (numQuestion == 3){
             clickThirdFAQButton();
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             return driver.findElement(answerThirdFAQ).getText();
         }
         if (numQuestion == 4){
             clickFourthFAQButton();
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             return driver.findElement(answerFourthFAQ).getText();
         }
         if (numQuestion == 5){
             clickFifthFAQButton();
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             return driver.findElement(answerFifthFAQ).getText();
         }
         if (numQuestion == 6){
             clickSixthFAQButton();
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             return driver.findElement(answerSixthFAQ).getText();
         }
         if (numQuestion == 7){
             clickSeventhFAQButton();
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             return driver.findElement(answerSeventhFAQ).getText();
         }
         if (numQuestion == 8){
             clickEighthFAQButton();
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             return driver.findElement(answerEighthFAQ).getText();
         }
         return "Вопрос не найден";
     }
 
-//    public String getTextAnswerFirstFAQ() {
-//        clickFirstFAQButton();
-//        return driver.findElement(answerFirstFAQ).getText();
-//    }
-//
-//    public String getTextAnswerSecondFAQ() {
-//        clickSecondFAQButton();
-//        return driver.findElement(answerSecondFAQ).getText();
-//    }
-//    public String getTextAnswerThirdFAQ() {
-//        clickThirdFAQButton();
-//        return driver.findElement(answerThirdFAQ).getText();
-//    }
-//
-//    public String getTextAnswerFourthFAQ() {
-//        clickFourthFAQButton();
-//        return driver.findElement(answerFourthFAQ).getText();
-//    }
-//    public String getTextAnswerFifthFAQ() {
-//        clickFifthFAQButton();
-//        return driver.findElement(answerFifthFAQ).getText();
-//    }
-//
-//    public String getTextAnswerSixthFAQ() {
-//        clickSixthFAQButton();
-//        return driver.findElement(answerSixthFAQ).getText();
-//    }
-//    public String getTextAnswerSeventhFAQ() {
-//        clickSeventhFAQButton();
-//        return driver.findElement(answerSeventhFAQ).getText();
-//    }
-//
-//    public String getTextAnswerEighthFAQ() {
-//        clickEighthFAQButton();
-//        return driver.findElement(answerEighthFAQ).getText();
-//    }
 
 
 
